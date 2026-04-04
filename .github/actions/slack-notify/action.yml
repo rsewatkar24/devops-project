@@ -1,0 +1,16 @@
+# Slack Notify Action
+name: 'Slack Notify'
+description: 'A GitHub Action for sending notifications to Slack.'
+inputs:
+  message:
+    description: 'The message to send to Slack.'
+    required: true
+  webhookUrl:
+    description: 'The Slack webhook URL.'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Send notification
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"${{ inputs.message }}"}' ${{ inputs.webhookUrl }}
