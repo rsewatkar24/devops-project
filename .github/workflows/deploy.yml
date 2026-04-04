@@ -1,104 +1,104 @@
-# name: Deploy Pipeline
+name: Deploy Pipeline
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   # ================= DEV STAGE =================
-#   deploy-dev:
-#     name: Deploy DEV
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v4
+jobs:
+  # ================= DEV STAGE =================
+  deploy-dev:
+    name: Deploy DEV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-#       - name: SonarQube Scan
-#         uses: SonarSource/sonarcloud-github-action@v3
-#         env:
-#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         with:
-#           args: >
-#             -Dsonar.projectKey=SanjayMahapatra_argocd-zero-2-hero
-#             -Dsonar.organization=sanjaymahapatra
-#             -Dsonar.host.url=https://sonarcloud.io
+      - name: SonarQube Scan
+        uses: SonarSource/sonarcloud-github-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=rsewatkar24_devops-project
+            -Dsonar.organization=rsewatkar24
+            -Dsonar.host.url=https://sonarcloud.io
 
-#       - name: Build Docker Image
-#         run: docker build -f .github/Dockerfile -t sanjaym1978/mychennel:${{ github.sha }} .
+      - name: Build Docker Image
+        run: docker build -f .github/Dockerfile -t rsewatka/myapp:${{ github.sha }} .
 
-#       - name: Install Trivy
-#         run: |
-#           set -euxo pipefail
-#           sudo apt-get update
-#           sudo apt-get install -y wget apt-transport-https gnupg lsb-release
-#           wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-#           echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
-#           sudo apt-get update
-#           sudo apt-get install -y trivy
-#           trivy --version
+      - name: Install Trivy
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y wget apt-transport-https gnupg lsb-release
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+          echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update
+          sudo apt-get install -y trivy
+          trivy --version
 
-#       - name: TRIVY SCAN
-#         run: |
-#           docker images | head -n 50
-#           docker image inspect sanjaym1978/mychennel:${{ github.sha }}
-#           trivy image --severity HIGH,CRITICAL --exit-code 0 sanjaym1978/mychennel:${{ github.sha }}
+      - name: TRIVY SCAN
+        run: |
+          docker images | head -n 50
+          docker image inspect rsewatka/myapp:${{ github.sha }}
+          trivy image --severity HIGH,CRITICAL --exit-code 0 rsewatka/myapp:${{ github.sha }}
 
-#       - name: Login to DockerHub
-#         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-#       - name: Push Docker Image
-#         run: docker push sanjaym1978/mychennel:${{ github.sha }}
+      - name: Push Docker Image
+        run: docker push rsewatka/myapp:${{ github.sha }}
 
-#       - name: Slack notify (DEV)
-#         if: always()
-#         uses: slackapi/slack-github-action@v2.0.0
-#         with:
-#           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           webhook-type: incoming-webhook
-#           payload: |
-#             {
-#               "text": "*DEV* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-#             }
+      - name: Slack notify (DEV)
+        if: always()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "*DEV* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
 
-#   # ================= QA STAGE =================
-#   deploy-qa:
-#     name: Deploy QA
-#     needs: deploy-dev
-#     runs-on: ubuntu-latest
-#     environment: qa
-#     steps:
-#       - name: Deploy to QA
-#         run: echo "Deploying to QA"
+  # ================= QA STAGE =================
+  deploy-qa:
+    name: Deploy QA
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+    environment: qa
+    steps:
+      - name: Deploy to QA
+        run: echo "Deploying to QA"
 
-#       - name: Slack notify (QA)
-#         if: always()
-#         uses: slackapi/slack-github-action@v2.0.0
-#         with:
-#           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           webhook-type: incoming-webhook
-#           payload: |
-#             {
-#               "text": "*QA* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-#             }
+      - name: Slack notify (QA)
+        if: always()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "*QA* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
 
-#   # ================= PROD STAGE =================
-#   deploy-prod:
-#     name: Deploy PROD
-#     needs: deploy-qa
-#     runs-on: ubuntu-latest
-#     environment: prod
-#     steps:
-#       - name: Deploy to PROD
-#         run: echo "Deploying to PROD"
+  # ================= PROD STAGE =================
+  deploy-prod:
+    name: Deploy PROD
+    needs: deploy-qa
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Deploy to PROD
+        run: echo "Deploying to PROD"
 
-#       - name: Slack notify (PROD)
-#         if: always()
-#         uses: slackapi/slack-github-action@v2.0.0
-#         with:
-#           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           webhook-type: incoming-webhook
-#           payload: |
-#             {
-#               "text": "*PROD* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-#             }
+      - name: Slack notify (PROD)
+        if: always()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "*PROD* deploy finished with status: *${{ job.status }}*\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
