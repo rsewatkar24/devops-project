@@ -15,7 +15,6 @@ Before we get into the good stuff, first we need to make sure we have the requir
 
 - [x] #1 Create AWS Access Keys
 - [x] #2 Provision an AWS EC2 instance with terraform
-- [x] Jenkins Installation
 - [x] Setting up a CI/CD pipeline using Terraform :tada:
 - [x] Terraform Cloud Configuration
 - [x] Check result in your AWS Management Console :tada:
