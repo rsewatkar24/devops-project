@@ -21,23 +21,10 @@ Before we get into the good stuff, first we need to make sure we have the requir
 
 In the project directory, you can run:
 
-## You can install aws cli using the following command
 
 
-```
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
-unzip awscliv2.zip
 
-sudo ./aws/install
-
-```
-
-Next, configure your aws account in your computer using the following command:
-
-```
-aws configure
-```
 ## create EC2 Instance with terraform 
 
 
@@ -167,3 +154,44 @@ resource "aws_instance" "my_ec2" {
 output "public_ip" {
   value = aws_instance.my_ec2.public_ip
 }
+
+
+
+## You can install aws cli using the following command
+
+Next, configure your aws account in your computer using the following command:
+
+```
+aws configure
+```
+## You can install aws cli using the following command
+
+
+```
+apt-get update
+ apt install curl unzip
+ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+ unzip awscliv2.zip
+ sudo ./aws/install
+ yes
+ exit
+ apt-get update
+ ls
+ unzip awscliv2.zip
+ sudo ./aws/install
+ sudo ./aws/install --update 
+ aws --version 
+ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp  
+ sudo mv /tmp/eksctl /usr/local/bin
+ eksctl version
+ curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/linux/amd64/kubectl
+ chmod +x ./kubectl  
+ sudo mv ./kubectl /usr/local/bin
+ kubectl version --short --client
+ eksctl create cluster   --name cluster-demo   --region us-east-1   --version 1.34   --nodegroup-name my-nodes   --node-type t3.medium   --nodes 2   --nodes-min 1   --nodes-max 2   --managed
+
+
+
+```
+
+
