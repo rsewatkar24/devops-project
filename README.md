@@ -18,3 +18,13 @@ Before we get into the good stuff, first we need to make sure we have the requir
 - [x] Setting up a CI/CD pipeline using Terraform :tada:
 - [x] Terraform Cloud Configuration
 - [x] Check result in your AWS Management Console :tada:
+
+## You can deploy EC2 instance with below Terraform code
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+
+sudo ./aws/install
+
+```
