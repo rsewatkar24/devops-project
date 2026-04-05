@@ -1,195 +1,40 @@
-# devops-project
-Implementing CI/CD Pipelines for EKS workloads with GitHub Actions for Multi-Environments Approach
-<img width="1050" height="483" alt="image" src="https://github.com/user-attachments/assets/15dd522b-febc-46cf-9e0f-5592ca9ab5f5" />
-### Prerequisites:
-Before we get into the good stuff, first we need to make sure we have the required services on our local machine or dev server, which are:
+# DevOps Project
 
-- AWS Account
-- GitHub Account
-- AWS CLI installed and configured.
-- Docker installed locally and docker image.
-- Terraform
-- Salck account
-- Sonarcloud account
-- Basic familiarity with YAML and GitHub workflows.
-- Any Browser for testing
-# Requirements
-- [x] #1 Provision an AWS EC2 instance with Terraform.
-- [x] #2 Install eksctl utility on EC2 instance.
+This repository contains the code and documentation for the DevOps project.
 
-## local testing
+## Table of Contents
+- [Introduction](#introduction)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Introduction
+This project aims to demonstrate best practices in DevOps, including CI/CD pipelines, infrastructure as code, and automated testing.
 
+## Setup Instructions
+Follow these steps to set up the project locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rsewatkar24/devops-project.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd devops-project
+   ```
+3. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
 
-
-
-
-## create EC2 Instance with terraform 
-
-
-```
-# EC2 instance creation with terraform 
-name: PRODUCTION --> Terraform CI/CD pipeline To AWS EKS Cluster - Enterprise
-
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-# ---------------- VPC ----------------
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "ramesh_vpc"
-  }
-}
-
-# ---------------- Subnet ----------------
-resource "aws_subnet" "public_subnet" {
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-1a"
-  map_public_ip_on_launch = true
-
-  tags = {
-    Name = "public-subnet"
-  }
-}
-
-# ---------------- Internet Gateway ----------------
-resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.main.id
-}
-
-# ---------------- Route Table ----------------
-resource "aws_route_table" "rt" {
-  vpc_id = aws_vpc.main.id
-}
-
-resource "aws_route" "internet_access" {
-  route_table_id         = aws_route_table.rt.id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.igw.id
-}
-
-resource "aws_route_table_association" "rta" {
-  subnet_id      = aws_subnet.public_subnet.id
-  route_table_id = aws_route_table.rt.id
-}
-
-# ---------------- Security Group ----------------
-resource "aws_security_group" "ec2_sg" {
-  name   = "ec2-security-group"
-  vpc_id = aws_vpc.main.id
-
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # restrict later
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-# ---------------- Get Latest AMI (FIX) ----------------
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-}
-
-##Add Ubuntu AMI Data Block
-
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  owners = ["099720109477"]  # Canonical (Ubuntu)
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
-# ---------------- EC2 Instance ----------------
-resource "aws_instance" "my_ec2" {
-  ami           = data.aws_ami.ubuntu.id   # dynamic AMI
-  instance_type = "t3.medium"
-
-  subnet_id              = aws_subnet.public_subnet.id
-  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
-
-  tags = {
-    Name = "ramesh-terraform-EC2"
-  }
-}
-
-# ---------------- Output ----------------
-output "public_ip" {
-  value = aws_instance.my_ec2.public_ip
-}
-
-
-
-##You can install aws cli using the following command
-
-Next, configure your aws account in your computer using the following command:
-
-```
-aws configure
-```
-## You can install aws cli using the following command
-
-
-```
- apt-get update
- apt install curl unzip
- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
- unzip awscliv2.zip
- sudo ./aws/install
- yes
- exit
- apt-get update
- ls
- unzip awscliv2.zip
- sudo ./aws/install
- sudo ./aws/install --update 
- aws --version 
- curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp  
- sudo mv /tmp/eksctl /usr/local/bin
- eksctl version
- curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/linux/amd64/kubectl
- chmod +x ./kubectl  
- sudo mv ./kubectl /usr/local/bin
- kubectl version --short --client
- eksctl create cluster   --name cluster-demo   --region us-east-1   --version 1.34   --nodegroup-name my-nodes   --node-type t3.medium   --nodes    2   --nodes-min 1   --nodes-max 2   --managed
-
+## Usage
+To start the application, run:
+```bash
+npm start
 ```
 
+## Contributing
+We welcome contributions! Please read the `CONTRIBUTING.md` file for details on our code of conduct and the process for submitting pull requests.
 
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
