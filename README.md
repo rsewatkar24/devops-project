@@ -201,11 +201,11 @@ output "public_ip" {
 
 <img width="955" height="483" alt="image" src="https://github.com/user-attachments/assets/85bdb88a-c26e-4e33-81fd-d96d40ed5668" />
 
-```
-# Github Workflows Terraform Pipeline Provision To Deploy to AWS EKS 
-name: Deploy Pipeline --> Terraform CI/CD pipeline To AWS EKS Cluster - Enterprise
-   DEV STAGE -->SonarQube Scan-->TRIVY SCAN--> Slack notify --> QA STAGE --> PROD STAGE
 
+# Github Workflows Terraform Pipeline Provision To Deploy to AWS EKS 
+  Name: Deploy Pipeline --> Terraform CI/CD pipeline To AWS EKS Cluster - Enterprise
+   DEV STAGE -->SonarQube Scan-->TRIVY SCAN--> Slack notify --> QA STAGE --> PROD STAGE
+```
 name: Deploy Pipeline
 
 on:
