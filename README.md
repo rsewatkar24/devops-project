@@ -197,4 +197,6 @@ output "public_ip" {
  kubectl port-forward svc/argocd-server -n argocd 9092:443 --address 0.0.0.0
 
 ```
+## access ArgoCD Application with Public IP of ekscluster node and the port from web browser .
 
+<img width="955" height="483" alt="image" src="https://github.com/user-attachments/assets/85bdb88a-c26e-4e33-81fd-d96d40ed5668" />
