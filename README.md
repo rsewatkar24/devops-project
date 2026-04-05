@@ -13,3 +13,27 @@ Before we get into the good stuff, first we need to make sure we have the requir
 - Sonarcloud account
 - Basic familiarity with YAML and GitHub workflows.
 - Any Browser for testing
+# Requirements
+- [x] #1 Provision an AWS EC2 instance with Terraform
+
+## local testing
+
+In the project directory, you can run:
+
+## You can install aws cli using the following command
+
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+
+sudo ./aws/install
+
+```
+
+Next, configure your aws account in your computer using the following command:
+
+```
+aws configure
+```
