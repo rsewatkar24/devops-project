@@ -14,7 +14,8 @@ Before we get into the good stuff, first we need to make sure we have the requir
 - Basic familiarity with YAML and GitHub workflows.
 - Any Browser for testing
 # Requirements
-- [x] #1 Provision an AWS EC2 instance with Terraform
+- [x] #1 Provision an AWS EC2 instance with Terraform.
+- [x] #2 Install eksctl utility on EC2 instance.
 
 ## local testing
 
