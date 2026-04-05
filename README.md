@@ -38,3 +38,9 @@ Next, configure your aws account in your computer using the following command:
 ```
 aws configure
 ```
+## create EC2 Instance with terraform 
+
+
+```
+# Github Workflows Terraform Pipeline Provision To Deploy to AWS EKS 
+name: PRODUCTION --> Terraform CI/CD pipeline To AWS EKS Cluster - Enterprise
