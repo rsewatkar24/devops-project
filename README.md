@@ -180,4 +180,21 @@ output "public_ip" {
 
 <img width="959" height="260" alt="image" src="https://github.com/user-attachments/assets/8c3d00c3-0bb0-48ad-94f7-19bcca5143ad" />
 
+<img width="947" height="368" alt="image" src="https://github.com/user-attachments/assets/6a339c48-42d7-4845-a0c9-1ac29840b194" />
+
+
+
+## Next we can install  ArgoCD with below commands.
+
+```
+ kubectl create namespace argocd
+ kubectl apply -n argocd   -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml   --server-side
+ kubectl get svc -n argocd
+ kubectl get pod -A
+ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+ kubectl get pod -A
+ kubectl get svc -n argocd
+ kubectl port-forward svc/argocd-server -n argocd 9092:443 --address 0.0.0.0
+
+```
 
