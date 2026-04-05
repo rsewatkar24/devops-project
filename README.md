@@ -145,3 +145,16 @@ output "public_ip" {
 }
 
 ```
+
+
+## we can install aws cli ,eksctl utility and kubectl on EC2 Instance as follow 
+
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+
+sudo ./aws/install
+
+```
