@@ -334,10 +334,42 @@ jobs:
  
  <img width="940" height="496" alt="image" src="https://github.com/user-attachments/assets/383b870a-ff00-40d1-85ee-67f5185739e0" />
 
-
+# Trivy installation 
  <img width="940" height="493" alt="image" src="https://github.com/user-attachments/assets/c91431bb-119a-4fc0-bfa0-f4df349fa78e" />
-
-
  
+# Trivy Scan 
+<img width="940" height="489" alt="image" src="https://github.com/user-attachments/assets/58dcfb04-a920-4c16-8819-e659efc0e191" />
 
+# SonarQube code scan 
+
+<img width="940" height="486" alt="image" src="https://github.com/user-attachments/assets/bd65855c-9219-4955-99f2-546a76eae2ae" />
+
+# Dev Completion 
+
+<img width="940" height="490" alt="image" src="https://github.com/user-attachments/assets/eae86fe0-b484-4650-9363-fa5d0d4064ea" />
+
+# Approval to Deploy in QA 
+
+ <img width="940" height="488" alt="image" src="https://github.com/user-attachments/assets/b8af8e9c-99d1-4eb2-9520-fd048217d6b1" />
+
+ # QA Starts 
+
+ <img width="940" height="496" alt="image" src="https://github.com/user-attachments/assets/0cbcaefe-57e9-4308-8b1a-75e901ef4ed4" />
+
+ # QA Completion 
+
+ <img width="940" height="489" alt="image" src="https://github.com/user-attachments/assets/ece9fa61-f96c-4512-91ea-470da9e8bef0" />
+
+
+ # Prod Starts 
+
+<img width="940" height="486" alt="image" src="https://github.com/user-attachments/assets/132e2a1b-d14e-4995-a9c9-6a0933ff4719" />
+
+# Prod Completion 
+
+<img width="940" height="492" alt="image" src="https://github.com/user-attachments/assets/b5004d98-87f5-464c-a871-78bec0481a85" />
+
+# Slack Notification 
+
+<img width="940" height="444" alt="image" src="https://github.com/user-attachments/assets/99e5621e-a506-4964-8659-2512bacb9907" />
 
