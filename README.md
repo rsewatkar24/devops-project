@@ -201,6 +201,10 @@ output "public_ip" {
 
 <img width="955" height="483" alt="image" src="https://github.com/user-attachments/assets/85bdb88a-c26e-4e33-81fd-d96d40ed5668" />
 
+## Webook configuration for GitOps 
+
+<img width="947" height="352" alt="image" src="https://github.com/user-attachments/assets/cf4fc443-9026-4be6-92c5-e8778833f095" />
+
 
 # Github Workflows Terraform Pipeline Provision To Deploy to AWS EKS 
   Name: Deploy Pipeline --> Terraform CI/CD pipeline To AWS EKS Cluster - Enterprise
