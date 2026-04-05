@@ -146,6 +146,7 @@ output "public_ip" {
 
 ```
 
+<img width="782" height="118" alt="image" src="https://github.com/user-attachments/assets/ec495d8a-8f04-4f80-883a-c76e2c82b55e" />
 
 ## we can install aws cli ,eksctl utility and kubectl on EC2 Instance as follow 
 
@@ -174,3 +175,9 @@ output "public_ip" {
  eksctl create cluster   --name cluster-demo   --region us-east-1   --version 1.34   --nodegroup-name my-nodes   --node-type t3.medium   --nodes 2   --nodes-min 1   --nodes-max 2   --managed
 
 ```
+<img width="956" height="295" alt="image" src="https://github.com/user-attachments/assets/b64b36b1-214f-491c-a48d-2b1e1c161af1" />
+<img width="964" height="418" alt="image" src="https://github.com/user-attachments/assets/cece40f8-613e-4be1-8111-7842efcfe4b2" />
+
+<img width="959" height="260" alt="image" src="https://github.com/user-attachments/assets/8c3d00c3-0bb0-48ad-94f7-19bcca5143ad" />
+
+
