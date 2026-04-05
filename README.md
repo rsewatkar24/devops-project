@@ -1,7 +1,7 @@
 ## Project - End-to-End Kubernetes Implementation 
 
 ### Prerequisites:
-Before we get into the good stuff, first we need to make sure we have the required services on our local machine or dev server, which are:
+first we need to make sure we have the required services on our local machine or dev server, which are:
 
 - AWS Account
 - GitHub Account
