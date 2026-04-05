@@ -1,4 +1,4 @@
-# Project - End-to-End Kubernetes Implementation 
+<img width="940" height="496" alt="image" src="https://github.com/user-attachments/assets/c8422a57-fa10-4780-93d0-bf92f8d2cf3c" /># Project - End-to-End Kubernetes Implementation 
 <img width="1050" height="483" alt="image" src="https://github.com/user-attachments/assets/24d744f7-d20f-4473-a6e3-e7d4bc8826f7" />
 ### Prerequisites:
 Before we get into the good stuff, first we need to make sure we have the required services on our local machine or dev server, which are:
@@ -326,6 +326,18 @@ jobs:
 
 ## when we commit the changes in Dev Environment Worflow action triggers with Approval Process below are screenshots 
 
+# Workflow action triggers 
 
+<img width="940" height="359" alt="image" src="https://github.com/user-attachments/assets/dcaacd4f-82f9-4d09-afbb-396fa3de2505" />
+
+ 
+ 
+ <img width="940" height="496" alt="image" src="https://github.com/user-attachments/assets/383b870a-ff00-40d1-85ee-67f5185739e0" />
+
+
+ <img width="940" height="493" alt="image" src="https://github.com/user-attachments/assets/c91431bb-119a-4fc0-bfa0-f4df349fa78e" />
+
+
+ 
 
 
