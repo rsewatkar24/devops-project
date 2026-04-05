@@ -373,3 +373,8 @@ jobs:
 
 <img width="940" height="444" alt="image" src="https://github.com/user-attachments/assets/99e5621e-a506-4964-8659-2512bacb9907" />
 
+# We can see app sync it has increased pod from 3 to 4 
+
+ <img width="940" height="473" alt="image" src="https://github.com/user-attachments/assets/f58edcee-2133-4714-a9fe-ef23bdf5615a" />
+
+ 
