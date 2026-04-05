@@ -312,7 +312,7 @@ jobs:
             }
 
 ```
-
+# we can use SonarQube and Slack account for the image scan and notifications
 <img width="965" height="434" alt="image" src="https://github.com/user-attachments/assets/9ad3df05-d4d7-46b9-ad09-f83a27dd20ba" />
 
 
