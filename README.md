@@ -157,7 +157,7 @@ output "public_ip" {
 
 
 
-## You can install aws cli using the following command
+##You can install aws cli using the following command
 
 Next, configure your aws account in your computer using the following command:
 
@@ -168,7 +168,7 @@ aws configure
 
 
 ```
-apt-get update
+ apt-get update
  apt install curl unzip
  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
  unzip awscliv2.zip
@@ -188,9 +188,7 @@ apt-get update
  chmod +x ./kubectl  
  sudo mv ./kubectl /usr/local/bin
  kubectl version --short --client
- eksctl create cluster   --name cluster-demo   --region us-east-1   --version 1.34   --nodegroup-name my-nodes   --node-type t3.medium   --nodes 2   --nodes-min 1   --nodes-max 2   --managed
-
-
+ eksctl create cluster   --name cluster-demo   --region us-east-1   --version 1.34   --nodegroup-name my-nodes   --node-type t3.medium   --nodes    2   --nodes-min 1   --nodes-max 2   --managed
 
 ```
 
