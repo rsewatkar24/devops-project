@@ -1,5 +1,5 @@
-<img width="940" height="496" alt="image" src="https://github.com/user-attachments/assets/c8422a57-fa10-4780-93d0-bf92f8d2cf3c" /># Project - End-to-End Kubernetes Implementation 
-<img width="1050" height="483" alt="image" src="https://github.com/user-attachments/assets/24d744f7-d20f-4473-a6e3-e7d4bc8826f7" />
+Project - End-to-End Kubernetes Implementation 
+
 ### Prerequisites:
 Before we get into the good stuff, first we need to make sure we have the required services on our local machine or dev server, which are:
 
